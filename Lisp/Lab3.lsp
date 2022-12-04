@@ -1,5 +1,5 @@
 ;Lab3
-;Создание новых свойств, изменение значений свойств
+
 (setf (get 'penza 'x) -300)
 (setf (get 'penza 'y) -300)
 (setf (get 'kazan 'x) 0)
