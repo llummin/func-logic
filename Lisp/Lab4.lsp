@@ -1,4 +1,4 @@
-;Lab4
+;Lab4.
 
 (defun add-to-tree (v tree)
     (cond ((null tree)(list nil v nil))
@@ -6,24 +6,41 @@
             (list (car tree)(cadr tree)(add-to-tree v (caddr tree))))
         (t (list (add-to-tree v (car tree))(cadr tree)(caddr tree)))))
 
-(defun list-to-tree (lst &optional (tree nil))
+(defun UTree (lst &optional (tree nil))
     (cond ((null lst ) tree)
-        (t (list-to-tree (cdr lst) (add-to-tree (car lst) tree)))))
+        (t (UTree (cdr lst)
+           (add-to-tree (car lst) tree)))))
 
-(defun sum-to-tree (tree)
-    (cond ((numberp tree) tree)
-        ((atom tree) 0)
-        (t (+ (sum-to-tree (car tree))
-              (sum-to-tree (cdr tree))))))
+(defun inp ()
+ (setq my-input (open "C:/Labs/Lisp/inpdata.txt" :direction :input))
+ (setq my-output (open "C:/Labs/Lisp/outdata.txt" :direction :output))
+    (setq x (read my-input))
+    (setq y (UTree x))
+    (print y)
+    (princ y my-output)
+    (close my-input)
+    (close my-output)
+)
 
-(defun get-tree-data ()
-    (with-open-file (stream "C:\Labs\Lisp\timber.txt")
-        (let ((tree-loc (read stream))
-               (tree-table (read stream))
-               (num-trees (read stream)))
-        (format t "~&There are ~S trees on ~S."
-                num-trees tree-loc)
-        (format t "~&They are: ~S" tree-table))))
+(trace UTree)
 
+(defun UFunc (tree)
+  (cond ((and (null (car tree)) (null (caddr tree))) 0)
+         ((> (cadr tree) 0)
+        (+ (cadr tree) (UFunc (car tree))(UFunc (caddr tree))))
+        (t  (+ (UFunc (car tree)) (UFunc (caddr tree))))))
 
+(trace UFunc)
 
+(defun out ()
+ (setq my-input (open "C:/Labs/Lisp/outdata.txt" :direction :input))
+   (setq my-output (open "C:/Labs/Lisp/out.txt" :direction :output))
+    (setq x (read my-input))
+    (setq y (UFunc x))
+    (print y)
+    (princ y my-output)
+    (close my-input)
+    (close my-output)
+)
+
+(setq tree '(10 5 15 6 16 4 14 3 13))
