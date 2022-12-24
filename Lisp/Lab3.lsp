@@ -1,31 +1,29 @@
-;Lab3
+(setf (get 'penza 'x) -300)            ; x - координата местонахождения Пензы 
+(setf (get 'penza 'y) -300)            ; y - координата местонахождения Пензы
+(setf (get 'kazan 'x) 0)               ; x - координата местонахождения Казани
+(setf (get 'kazan 'y) 0)               ; y - координата местонахождения Казани
+(setf (get 'votkinsk 'x) 200)          ; x - координата местонахождения Воткинска
+(setf (get 'votkinsk 'y) 100)          ; y - координата местонахождения Воткинска
 
-(setf (get 'penza 'x) -300)
-(setf (get 'penza 'y) -300)
-(setf (get 'kazan 'x) 0)
-(setf (get 'kazan 'y) 0)
-(setf (get 'votkinsk 'x) 200)
-(setf (get 'votkinsk 'y) 100)
-
-(defun UF1(a b)
-    (do ( (count 0 (1+ count))
-          (result 0 (+ result a)))
+(defun UF1(a b)                        ; Функция для расчёта произведения 2 целых
+    (do ( (count 0 (1+ count))         ; положительных чисел, используя суммирование,
+          (result 0 (+ result a)))     ; без применения рекурсии
         ((>= count b) result)
     )
 )
 
-(setq a 50)
-(setq b 9)
-(setq result (UF1 a b))
+(setq a 50)                            ; a = 50                         
+(setq b 9)                             ; b = 9
+(setq result (UF1 a b))                ; Результат функции UF1
 
-(defun UF2(a b c)
-    (let ((x1 (get a 'x))
-          (y1 (get a 'y))
-          (x2 (get b 'x))
-          (y2 (get b 'y))
-          (x3 (get c 'x))
-          (y3 (get c 'y)))
-    (/ (+ (+ (sqrt (+ (expt (- x2 x1) 2) (expt (- y2 y1) 2)))
+(defun UF2(a b c)                      ; Функция для определения минимального расстояния
+    (let ((x1 (get a 'x))              ; между тремя заданными городами,
+          (y1 (get a 'y))              ; реализуются следующие формулы: 
+          (x2 (get b 'x))              ; D1 = √[ ( X2-X1)^2 + (Y2-Y1)^2)
+          (y2 (get b 'y))              ; D2 = √[ ( X3-X1)^2 + (Y3-Y1)^2)
+          (x3 (get c 'x))              ; D3 = √[ ( X3-X2)^2 + (Y3-Y2)^2) 
+          (y3 (get c 'y)))             ; D  = (D1 + D2 + D3)/3
+    (/ (+ (+ (sqrt (+ (expt (- x2 x1) 2) (expt (- y2 y1) 2))) 
     (sqrt (+ (expt (- x3 x1) 2) (expt (- y3 y1) 2))))
     (sqrt (+ (expt (- x3 x2) 2) (expt (- y3 y2) 2))))3)))
 
