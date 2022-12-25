@@ -1,7 +1,3 @@
-/* Лабораторная работа №2.
-    Работа с отношениями 
-       на языке Prolog */
-       
 predicates
  
  nondeterm parent(STRING, STRING).
@@ -108,61 +104,61 @@ clauses
     married_couple(Husband,Wife).  
 goal
 
- % father(X,Y).
- % aunt(A,B).
- % second_cousin_brother(X,Y).
- % any_cousin_brother(2,X,Y).
- % husband(X,Y).
+    father(X,Y).
+    aunt(A,B).
+    second_cousin_brother(X,Y).
+    any_cousin_brother(2,X,Y).
+    husband(X,Y).
  
  % 6.1 Находится ли субъект a в отношении R с субъектом b? [тип: R(a,b)]
  
- % parent("Николай", "Ольга").
- % parent("Николай", "Никита").
- % parent("Екатерина", "Ольга").
- % parent("Екатерина", "Никита").
- % parent("Евгений", "Николай").
- % parent("Елизавета", "Николай").
- % parent("Евгений", "Анна").
+    parent("Николай", "Ольга").
+    parent("Николай", "Никита").
+    parent("Екатерина", "Ольга").
+    parent("Екатерина", "Никита").
+    parent("Евгений", "Николай").
+    parent("Елизавета", "Николай").
+    parent("Евгений", "Анна").
  
- % married_couple("Николай", "Екатерина").
- % married_couple("Олег", "Анна").
- % married_couple("Евгений", "Елизавета").
- % married_couple("Лев", "Татьяна").
- % married_couple("Алексей", "София").
- % married_couple("Альберт", "Елена").
+    married_couple("Николай", "Екатерина").
+    married_couple("Олег", "Анна").
+    married_couple("Евгений", "Елизавета").
+    married_couple("Лев", "Татьяна").
+    married_couple("Алексей", "София").
+    married_couple("Альберт", "Елена").
  
- % father("Евгений", "Николай").
- % aunt("Анна", "Никита").
+    father("Евгений", "Николай").
+    aunt("Анна", "Никита").
  
- % parent("Евгений", "Алексей").
- % parent("Татьяна", "Анна").
- % parent("Лев", "Альберт").
- % parent("Альберт", "Николай").
- % parent("София", "Максим").
- % parent("Елена", "Альберт").
+    parent("Евгений", "Алексей").
+    parent("Татьяна", "Анна").
+    parent("Лев", "Альберт").
+    parent("Альберт", "Николай").
+    parent("София", "Максим").
+    parent("Елена", "Альберт").
  
- % married_couple("Олег", "Екатерина").
- % married_couple("Николай", "Анна").
- % married_couple("Евгений", "Татьяна").
- % married_couple("Лев", "Елизавета").
- % married_couple("Альберт", "София").
- % married_couple("Алексей", "Елена").
+    married_couple("Олег", "Екатерина").
+    married_couple("Николай", "Анна").
+    married_couple("Евгений", "Татьяна").
+    married_couple("Лев", "Елизавета").
+    married_couple("Альберт", "София").
+    married_couple("Алексей", "Елена").
  
- % father("Елизавета", "Николай").
- % aunt("Екатерина", "Никита").
+    father("Елизавета", "Николай").
+    aunt("Екатерина", "Никита").
  
  % 6.2 Кто находится в отношении R с субъектом a? [тип: R(a,Y), R(X,b)]
  
- % parent("Николай", Child), parent(Parent,"Никита").
- % parent("Екатерина", Child), parent(Parent,"Ольга").
+    parent("Николай", Child), parent(Parent,"Никита").
+    parent("Екатерина", Child), parent(Parent,"Ольга").
  
- % married_couple("Николай", Wife), parent(Parent,"Ольга").
- % father("Лев",Child), married_couple(Husband, "Татьяна").
+    married_couple("Николай", Wife), parent(Parent,"Ольга").                  
+    father("Лев",Child), married_couple(Husband, "Татьяна").
  
  % 6.3 Найти все пары субъектов, находящихся в отношении R. [тип: R(X,Y)]
  
- % father(X, Y).
- % aunt(X,Y).
- % second_cousin_brother(X, Y).
- % any_cousin_brother(N, X,Y).
- % husband(X,Y).
+    father(X, Y).                   
+    aunt(X,Y).                      
+    second_cousin_brother(X, Y).    
+    any_cousin_brother(N, X,Y).
+    husband(X,Y).
